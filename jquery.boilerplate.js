@@ -1,6 +1,6 @@
 /*
- * Plugin Name
- * https://github.com/filamentgroup/PLUGIN-URL
+ * Toggle widget
+ * https://github.com/filamentgroup/toggle
  * Copyright (c) 2013 Filament Group, Inc.
  * Licensed under the MIT, GPL licenses.
  */
@@ -8,7 +8,7 @@
 ;(function ($, window, document, undefined) {
     
     // Defaults
-    var pluginName = "defaultPluginName";
+    var pluginName = "collapsible";
     // overrideable defaults
     var defaults = {
         propertyName: "value"
@@ -22,19 +22,22 @@
         // is generally empty as we don't want to alter the default options for
         // future instances of the plugin
 
-        // Allow data-attr option setting?
+        // Allow data-attr option setting? Remove if you don't need it.
         // string and number type defaults can be overridden by data attributes of the same name (with dashes in place of camelCase), if a data-config attribute is present on the widget element.
         // options set via data attributes will be overridden by options passed directly as arguments
         if( this.element.is( "[data-config]" ) ){
             var dataOptions = {};
             for( var i in defaults ){
-                if( defaults.hasOwnProperty( i ) && ( typeof( defaults[ i ] === "string" ) ) || typeof( defaults[ i ] === "number" ) ){
+                if( defaults.hasOwnProperty( i ) && ( typeof( defaults[ i ] === "string" ) ) || typeof( defaults[ i ] === "number" ) || typeof( defaults[ i ] === "boolean" ) ){
                     var dataOption = elem.attr( i.replace( /[A-Z]/g, function( c ) {
                             return "-" + c.toLowerCase();
                         }));
 
                     if( typeof( dataOption ) === "string" || typeof( dataOption ) === "number" ){
                         dataOptions[ i ] = dataOption;
+                    }
+                    else if( typeof( dataOption ) === "boolean" ){
+                        dataOptions[ i ] = dataOption === "true";
                     }
                 }
             }
