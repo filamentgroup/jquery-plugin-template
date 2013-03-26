@@ -60,5 +60,10 @@
             }
         });
     };
+    
+    // A simple auto-init by selector that runs when the dom is ready. Use if desirable.
+    $(function(){
+        $( "." + pluginName )[pluginName]();
+    });
 
 })(jQuery, window, document);
