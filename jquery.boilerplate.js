@@ -1,6 +1,6 @@
 /*
- * Toggle widget
- * https://github.com/filamentgroup/toggle
+ * Plugin Name
+ * https://github.com/filamentgroup/defaultPluginName
  * Copyright (c) 2013 Filament Group, Inc.
  * Licensed under the MIT, GPL licenses.
  */
@@ -8,7 +8,7 @@
 ;(function ($, window, document, undefined) {
     
     // Defaults
-    var pluginName = "collapsible";
+    var pluginName = "defaultPluginName";
     // overrideable defaults
     var defaults = {
         propertyName: "value"
